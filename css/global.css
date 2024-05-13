@@ -1,0 +1,23 @@
+nav {
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+
+.header {
+    height: 210px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(269deg, rgba(16, 93, 209, 0.29) 2.78%, rgba(46, 51, 221, 0.43) 41.64%, rgba(9, 17, 206, 0.50) 98.56%);
+}
+
+.header p {
+    color: var(--BG-White-Color, #FAFCFF);
+    font-family: Inter;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.642px;
+    text-transform: capitalize;
+}
