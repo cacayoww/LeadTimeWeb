@@ -1,23 +1,143 @@
 nav {
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 .header {
-    height: 210px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(269deg, rgba(16, 93, 209, 0.29) 2.78%, rgba(46, 51, 221, 0.43) 41.64%, rgba(9, 17, 206, 0.50) 98.56%);
+  height: 210px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    269deg,
+    rgba(16, 93, 209, 0.29) 2.78%,
+    rgba(46, 51, 221, 0.43) 41.64%,
+    rgba(9, 17, 206, 0.5) 98.56%
+  );
 }
 
 .header p {
-    color: var(--BG-White-Color, #FAFCFF);
-    font-family: Inter;
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: -0.642px;
-    text-transform: capitalize;
+  color: var(--BG-White-Color, #fafcff);
+  font-family: Inter;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.642px;
+  text-transform: capitalize;
+}
+
+.navbar-nav .nav-link {
+  font-weight: normal;
+  color: black;
+  font-size: 18px; /* Increase the font size as needed */
+  transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #007bff; /* or any other color you want for hover effect */
+}
+
+.navbar-brand img {
+  width: 80px;
+  height: auto;
+}
+
+.gradient-text {
+  background: radial-gradient(
+    circle,
+    rgba(55, 63, 255, 1) 30%,
+    rgba(58, 202, 248, 1) 96%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700; /* Bold weight */
+  line-height: 1.2;
+  margin: 90px 20px 30px 100px;
+}
+
+.leadtime {
+  width: 100%; /* 100% lebar layar */
+  padding: 40px;
+  background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+}
+
+.list-item {
+  margin-bottom: 10px;
+  font-size: 1.4em;
+  margin-left: 70px;
+}
+
+.arrow {
+  margin-left: 5px;
+  font-size: 1.5em; /* Ubah ukuran panah sesuai kebutuhan */
+}
+
+#leadtime p {
+  font-size: 1.4em;
+  margin-left: 20px;
+}
+
+.card-img-top {
+  height: 200px; /* Menetapkan tinggi tetap untuk gambar */
+  object-fit: cover; /* Memastikan gambar sesuai dengan area yang telah ditentukan tanpa mengubah proporsi */
+}
+
+.custom-container {
+  background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+  padding: 40px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(
+    128,
+    128,
+    128,
+    0.5
+  ); /* Warna abu-abu dengan transparansi */
+  border-radius: 50%;
+}
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+  background-color: rgba(
+    128,
+    128,
+    128,
+    0.8
+  ); /* Warna abu-abu lebih gelap saat hover */
+}
+
+.footer {
+   background: radial-gradient(
+    circle,
+    rgba(55, 63, 255, 1) 30%,
+    rgba(58, 202, 248, 1) 96%
+  );
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+    position: relative;
+    margin-top:30px;
+}
+.footer hr {
+    border-top: 1px solid #A9A9A9; /* Warna garis horizontal abu-abu */
+    margin: 0 auto;
+    width: 40%;
+}
+.footer-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 1.5rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-icons a:hover {
+    color: #D3D3D3; /* Warna ikon saat hover abu-abu terang */
 }
