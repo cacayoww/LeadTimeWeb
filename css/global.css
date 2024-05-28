@@ -104,26 +104,47 @@ nav {
   padding: 40px;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-color: rgba(
-    128,
-    128,
-    128,
-    0.5
-  ); /* Warna abu-abu dengan transparansi */
-  border-radius: 50%;
-}
-.carousel-control-prev-icon:hover,
-.carousel-control-next-icon:hover {
-  background-color: rgba(
-    128,
-    128,
-    128,
-    0.8
-  ); /* Warna abu-abu lebih gelap saat hover */
+.model .card {
+  max-height: 430px; /* Ensure all cards have the same minimum height */
+  min-height: 430px; /* Ensure all cards have the same minimum height */
+
 }
 
+.model .card-text {
+  line-height: 2; /* Set the line height of paragraphs in cards */
+  overflow-y: auto; /* Enable vertical scrolling if the text exceeds max-height */
+  max-height: 150px; /* Set the maximum height for the card text */
+
+}
+
+.carousel-control-prev,
+        .carousel-control-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45px;
+            height: 45px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            border: none;
+        }
+        .carousel-control-prev {
+            left: -60px; /* Adjust this value to position the button outside the carousel */
+        }
+        .carousel-control-next {
+            right: -60px; /* Adjust this value to position the button outside the carousel */
+        }
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-size: 100%, 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+.team .card-img-top {
+  height: 100%; /* Menetapkan tinggi tetap untuk gambar */
+  object-fit: cover; /* Memastikan gambar sesuai dengan area yang telah ditentukan tanpa mengubah proporsi */
+}
 
 
 .footer {
@@ -136,7 +157,7 @@ nav {
     text-align: center;
     color: white;
     position: relative;
-    margin-top:60px;
+    margin-top:80px;
 }
 .footer hr {
     border-top: 1px solid #A9A9A9; /* Warna garis horizontal abu-abu */
