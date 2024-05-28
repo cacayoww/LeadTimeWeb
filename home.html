@@ -278,13 +278,82 @@
                         model dengan data yang tidak dinormalisasi. Model tersebut mampu menjelaskan 97% prediksi dengan
                         skor R2 = 0.971731. Namun untuk model lainnya memiliki skor R2 minus yang berarti tidak dapat
                         menjelaskan prediksi apa pun.</p>
-                    <button class="btn btn-primary mt-3">Detail Model</button>
+                    <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Detail
+                        Model</button>
                 </div>
                 <div class="col-md-6">
                     <img src="./img/summary.png" alt="">
 
                 </div>
 
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Lead Time Calculator</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <form>
+                            <div class="row w-100">
+                                <div class="col">
+                                    <div class="form-group mb-3">
+                                        <label for="costs">Costs</label>
+                                        <input class="form-control" type="text" id="costs" placeholder="Enter costs"
+                                            aria-describedby="costhelp">
+                                        <small id="costhelp" class="form-text text-muted">isi di rentang 0-1000</small>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="orderqty">Order quantities</label>
+                                        <input class="form-control" type="text" id="orderqty"
+                                            placeholder="Enter order quantities" aria-describedby="orderqtyhelp">
+                                        <small id="orderqtyhelp" class="form-text text-muted">isi di rentang
+                                            0-1000</small>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="price">Price</label>
+                                        <input class="form-control" type="text" id="price" placeholder="Enter Price"
+                                            aria-describedby="pricehelp">
+                                        <small id="pricehelp" class="form-text text-muted">isi di rentang 0-1000</small>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group mb-3">
+                                        <label for="avail">Availability</label>
+                                        <input class="form-control" type="text" id="avail"
+                                            placeholder="Enter Availability" aria-describedby="availhelp">
+                                        <small id="availhelp" class="form-text text-muted">isi di rentang 0-1000</small>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="stocklevels">Stock Levels</label>
+                                        <input class="form-control" type="text" id="stocklevels"
+                                            placeholder="Enter Stock Levels" aria-describedby="stocklevelshelp">
+                                        <small id="stocklevelshelp" class="form-text text-muted">isi di rentang
+                                            0-1000</small>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="defect">Defect Rates</label>
+                                        <input class="form-control" type="text" id="defect"
+                                            placeholder="Enter Defect Rates" aria-describedby="defecthelp">
+                                        <small id="defecthelp" class="form-text text-muted">isi di rentang
+                                            0-1000</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div id="predictionResult"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        onclick="reset()">Close</button>
+                    <button type="button " class="btn btn-primary" onclick="predict()">Predict</button>
+                </div>
             </div>
         </div>
     </div>
@@ -372,9 +441,55 @@
 
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
 <script>
     function setImageModal(src) {
         document.getElementById('modalImage').src = src;
+    }
+
+    async function loadModel() {
+        return await tf.loadLayersModel('model_js/model.json');
+    }
+
+    async function predict() {
+        const model = await loadModel();
+
+        // Mengambil nilai input dari form
+        const costs = parseFloat(document.getElementById('costs').value);
+        const orderqty = parseFloat(document.getElementById('orderqty').value);
+        const price = parseFloat(document.getElementById('price').value);
+        const avail = parseFloat(document.getElementById('avail').value);
+        const stocklevels = parseFloat(document.getElementById('stocklevels').value);
+        const defect = parseFloat(document.getElementById('defect').value);
+
+        // Nilai minimum dan maksimum dari dataset pelatihan
+        const minValues = [103.916248, 1.000000, 1.699976, 1.000000, 0.0, 0.018608];
+        const maxValues = [997.413450, 96.000000, 99.171329, 100.000000, 100.000000, 4.939255];
+        const minTargetValue = 1;
+        const maxTargetValue = 30;
+
+        // Normalisasi input data
+        const inputData = [costs, orderqty, price, avail, stocklevels, defect];
+        let normalizedInput = inputData.map((value, index) => {
+            return (value - minValues[index]) / (maxValues[index] - minValues[index]);
+        });
+        const inputTensor = tf.tensor2d([normalizedInput]);
+
+        // Melakukan prediksi
+        const output = model.predict(inputTensor);
+        output.array().then(array => {
+            const normalizedResult = array[0][0];
+            const denormalizedResult = denormalize(normalizedResult, minTargetValue, maxTargetValue);
+            document.getElementById('predictionResult').innerText = `Prediction result: ${denormalizedResult}`;
+        });
+    }
+
+    function denormalize(value, min, max) {
+        return value * (max - min) + min;
+    }
+
+    function reset() {
+        document.getElementById('predictionResult').innerText = '';
     }
 </script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
