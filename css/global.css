@@ -58,6 +58,8 @@ nav {
   max-width: 70px; /* Atur lebar logo jika diperlukan */
 }
 
+
+
 .gradient-text {
   background: radial-gradient(
     circle,
@@ -139,15 +141,20 @@ nav {
   background-repeat: no-repeat;
 }
 
-.team .card-img-top {
-  height: 100%; /* Menetapkan tinggi tetap untuk gambar */
-  object-fit: cover; /* Memastikan gambar sesuai dengan area yang telah ditentukan tanpa mengubah proporsi */
+.custom-card {
+  width: 18rem;
+  height: auto; /* Allow card height to adjust automatically based on content */
 }
 
-.team  .card {
-  max-height: 400px; /* Ensure all cards have the same minimum height */
-  min-height: 400px; /* Ensure all cards have the same minimum height */
+.custom-img {
+  width: 100%;
+  height: 300px; /* Ensure all images have the same height */
+  object-fit: cover; /* Ensure images cover the area without distortion */
 }
+
+
+
+
 
 .footer {
   background: radial-gradient(

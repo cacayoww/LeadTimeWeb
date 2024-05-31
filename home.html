@@ -184,8 +184,11 @@
                                     onclick="setImageModal(this.src)">
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold">Lead Times vs Price</h5>
-                                    <p class="card-text">Far far away, behind the word mountains, far from the countries
-                                        Vokalia and Consonantia, there live the blind texts.</p>
+                                    <p class="card-text">Terdapat hubungan positif kecil pada biaya dari pemasok lead
+                                        time. Hal ini berarti bahwa tidak ada hubungan yang konsisten antara waktu
+                                        tunggu dan harga barang. Meskipun tidak ada tren yang jelas, ada beberapa
+                                        pengecualian. yaitu beberapa titik data menunjukkan bahwa price tinggi meskipun
+                                        lead time pendek.</p>
                                 </div>
                             </div>
                         </div>
@@ -196,8 +199,11 @@
                                     onclick="setImageModal(this.src)">
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold">Lead Times vs Stock Levels</h5>
-                                    <p class="card-text">Far far away, behind the word mountains, far from the countries
-                                        Vokalia and Consonantia, there live the blind texts.</p>
+                                    <p class="card-text">Terdapat hubungan positif kecil pada persediaan pada pemasok
+                                        lead time. Titik-titik data dalam diagram ini lebih menyebar, sehingga sulit
+                                        untuk memastikan adanya korelasi positif yang kuat. Ini mungkin karena
+                                        perusahaan cenderung menyimpan lebih banyak safety stock ketika mereka tahu
+                                        butuh waktu lebih lama untuk menerima persediaan baru.</p>
                                 </div>
                             </div>
                         </div>
@@ -238,8 +244,7 @@
                         model dengan data yang tidak dinormalisasi. Model tersebut mampu menjelaskan 97% prediksi dengan
                         skor R2 = 0.971731. Namun untuk model lainnya memiliki skor R2 minus yang berarti tidak dapat
                         menjelaskan prediksi apa pun.</p>
-                    <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Detail
-                        Model</button>
+                    <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Prediksi Lead Time</button>
                 </div>
                 <div class="col-md-6">
                     <img src="./img/summary.png" alt="">
@@ -271,13 +276,13 @@
                                         <input class="form-control" type="text" id="orderqty"
                                             placeholder="Enter order quantities" aria-describedby="orderqtyhelp">
                                         <small id="orderqtyhelp" class="form-text text-muted">isi di rentang
-                                            0-1000</small>
+                                            0-100</small>
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="price">Price</label>
                                         <input class="form-control" type="text" id="price" placeholder="Enter Price"
                                             aria-describedby="pricehelp">
-                                        <small id="pricehelp" class="form-text text-muted">isi di rentang 0-1000</small>
+                                        <small id="pricehelp" class="form-text text-muted">isi di rentang 0-100</small>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -285,21 +290,21 @@
                                         <label for="avail">Availability</label>
                                         <input class="form-control" type="text" id="avail"
                                             placeholder="Enter Availability" aria-describedby="availhelp">
-                                        <small id="availhelp" class="form-text text-muted">isi di rentang 0-1000</small>
+                                        <small id="availhelp" class="form-text text-muted">isi di rentang 0-100</small>
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="stocklevels">Stock Levels</label>
                                         <input class="form-control" type="text" id="stocklevels"
                                             placeholder="Enter Stock Levels" aria-describedby="stocklevelshelp">
                                         <small id="stocklevelshelp" class="form-text text-muted">isi di rentang
-                                            0-1000</small>
+                                            0-100</small>
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="defect">Defect Rates</label>
                                         <input class="form-control" type="text" id="defect"
                                             placeholder="Enter Defect Rates" aria-describedby="defecthelp">
                                         <small id="defecthelp" class="form-text text-muted">isi di rentang
-                                            0-1000</small>
+                                            0-5</small>
                                     </div>
                                 </div>
                             </div>
@@ -324,28 +329,28 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="d-flex justify-content-center">
-                        <div class="card mx-2" style="width: 18rem;">
-                            <img src="./img/team/Revan.png" class="card-img-top" alt="...">
+                        <div class="card mx-2 custom-card">
+                            <img src="./img/team/Revan.png" class="card-img-top custom-img" alt="Revan Azriel.L.A">
                             <div class="card-body">
                                 <h5 class="card-title fw-bold">Revan Azriel.L.A</h5>
-                                <h6 class="card-title fw-bold">Machine Learning
-                                    Engineer - Leader</h6>
+                                <h6 class="card-title fw-bold">Machine Learning Engineer - Leader</h6>
                                 <p class="card-text">Universitas Indonesia <span> - 2106727185</span></p>
                             </div>
                         </div>
-                        <div class="card mx-2" style="width: 18rem;">
-                            <img src="./img/team/Agit.png" class="card-img-top" alt="...">
+                        <div class="card mx-2 custom-card">
+                            <img src="./img/team/Agit.png" class="card-img-top custom-img" alt="Agit">
                             <div class="card-body">
                                 <h5 class="card-title fw-bold">Agit</h5>
                                 <h6 class="card-title fw-bold">UI/UX Designer</h6>
                                 <p class="card-text">STT Terpadu Nurul Fikri <span> - 0110121246</span></p>
                             </div>
                         </div>
-                        <div class="card mx-2" style="width: 18rem;">
-                            <img src="./img/team/Aura.png" class="card-img-top" alt="...">
+                        <div class="card mx-2 custom-card">
+                            <img src="./img/team/Aura.png" class="card-img-top custom-img" alt="Aura Nadhiya.J">
                             <div class="card-body">
                                 <h5 class="card-title fw-bold">Aura Nadhiya.J</h5>
-                                <p class="card-text">UniversitasMuhammadiyah Bandung <span> - 210103028</span></p>
+                                <h6 class="card-title fw-bold">Data Engineer</h6>
+                                <p class="card-text">Universitas Muhammadiyah Bandung <span> - 210103028</span></p>
                             </div>
                         </div>
                     </div>
@@ -353,23 +358,28 @@
                 <div class="carousel-item">
                     <div class="d-flex justify-content-center">
                         <div class="card mx-2" style="width: 18rem;">
-                            <img src="image4.jpg" class="card-img-top" alt="...">
+                            <img src="image4.jpg" class="card-img-top custom-img"alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Person 4</h5>
-                                <p class="card-text">Description 4</p>
+                                <h5 class="card-title fw-bold">Maritza Amalia Dwiputri</h5>
+                                <h6 class="card-title fw-bold">Web Deployment</h6>
+                                <p class="card-text">Universitas Telkom <span> - 1301213399</span></p>
                             </div>
                         </div>
                         <div class="card mx-2" style="width: 18rem;">
-                            <img src="image5.jpg" class="card-img-top" alt="...">
+                            <img src="./img/team/Vina.png" class="card-img-top custom-img" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Person 5</h5>
-                                <p class="card-text">Description 5</p>
+                                <h5 class="card-title fw-bold">Vina Amalia Ramadhan</h5>
+                                <h6 class="card-title fw-bold">Machine Learning
+                                    Engineer</h6>
+                                <p class="card-text">Universitas Pendidikan
+                                    Indonesia <span> - 2107381</span></p>
                             </div>
                         </div>
                         <div class="card mx-2" style="width: 18rem;">
-                            <img src="./img/team/Siska.png" class="card-img-top" alt="...">
+                            <img src="./img/team/Siska.png" class="card-img-top custom-img" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title fw-bold">Siska Prifiantari</h5>
+                                <h6 class="card-title fw-bold">Technical Writer</h6>
                                 <p class="card-text">Universitas Pendidikan Indonesia <span> - 2100323</span></p>
                             </div>
                         </div>
