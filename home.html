@@ -256,7 +256,7 @@
     </div>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Lead Time Calculator</h1>
@@ -271,20 +271,21 @@
                                         <label for="costs">Costs</label>
                                         <input class="form-control" type="text" id="costs" placeholder="Enter costs"
                                             aria-describedby="costhelp">
-                                        <small id="costhelp" class="form-text text-muted">isi di rentang 0-1000</small>
+                                        <small id="costhelp" class="form-text text-muted">isi di rentang
+                                            100-1000</small>
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="orderqty">Order quantities</label>
                                         <input class="form-control" type="text" id="orderqty"
                                             placeholder="Enter order quantities" aria-describedby="orderqtyhelp">
                                         <small id="orderqtyhelp" class="form-text text-muted">isi di rentang
-                                            0-100</small>
+                                            1-100</small>
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="price">Price</label>
                                         <input class="form-control" type="text" id="price" placeholder="Enter Price"
                                             aria-describedby="pricehelp">
-                                        <small id="pricehelp" class="form-text text-muted">isi di rentang 0-100</small>
+                                        <small id="pricehelp" class="form-text text-muted">isi di rentang 1-100</small>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -292,7 +293,7 @@
                                         <label for="avail">Availability</label>
                                         <input class="form-control" type="text" id="avail"
                                             placeholder="Enter Availability" aria-describedby="availhelp">
-                                        <small id="availhelp" class="form-text text-muted">isi di rentang 0-100</small>
+                                        <small id="availhelp" class="form-text text-muted">isi di rentang 1-100</small>
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="stocklevels">Stock Levels</label>
@@ -312,6 +313,8 @@
                             </div>
                         </form>
                         <div id="predictionResult"></div>
+                        <div id="explain"></div>
+
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -360,7 +363,7 @@
                 <div class="carousel-item">
                     <div class="d-flex justify-content-center">
                         <div class="card mx-2" style="width: 18rem;">
-                            <img src="image4.jpg" class="card-img-top custom-img" alt="...">
+                            <img src="./img/team/Maritza.png" class="card-img-top custom-img" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title fw-bold">Maritza Amalia Dwiputri</h5>
                                 <h6 class="card-title fw-bold">Web Deployment</h6>
@@ -454,11 +457,49 @@
             const normalizedResult = array[0][0];
             const denormalizedResult = denormalize(normalizedResult, minTargetValue, maxTargetValue);
             document.getElementById('predictionResult').innerText = `Prediction result: ${denormalizedResult}`;
+            document.getElementById('explain').innerHTML = `
+            <div style="display: flex; flex-direction: row; margin-top: 8px;">
+                <div class="col-3" style="display: flex; background-color: greenyellow; width: 50px; height: 30px; border-radius: 10px; justify-content: center; align-items: center;">
+                    1-10
+                </div>
+                <div class="col" style="display: flex; flex-direction: column; margin: 0px 0px 0px 12px">
+                    <p style="margin-bottom: 4px; font-weight: bold;">Lead time rendah</p>
+                    <p>Produk atau pesanan dapat diproses dengan cepat. Kemungkinan besar, operasi rantai pasokan berjalan efisien dan responsif terhadap permintaan.</p>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: row;">
+                <div class="col-3" style="display: flex; background-color: orange; width: 50px; height: 30px; border-radius: 10px; justify-content: center; align-items: center;">
+                    11-20
+                </div>
+                <div class="col" style="display: flex; flex-direction: column; margin: 0px 0px 0px 12px">
+                    <p style="margin-bottom: 4px; font-weight: bold;">Lead time sedang</p>
+                    <p>Waktu yang diperlukan untuk memproses pesanan atau produk adalah sedang. Ada kemungkinan bahwa ada beberapa penundaan dalam rantai pasokan atau produksi, tetapi tidak signifikan.</p>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: row;">
+                <div class="col-3" style="display: flex; background-color: red; width: 50px; height: 30px; border-radius: 10px; justify-content: center; align-items: center;">
+                    21-30
+                </div>
+                <div class="col" style="display: flex; flex-direction: column; margin: 0px 0px 0px 12px">
+                    <p style="margin-bottom: 4px; font-weight: bold;">Lead time tinggi</p>
+                    <p>Lead time cukup tinggi, yang dapat menandakan adanya penundaan yang signifikan dalam rantai pasokan atau produksi. Perusahaan mungkin menghadapi tantangan dalam memenuhi permintaan pelanggan tepat waktu.</p>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: row;">
+                <div class="col-3" style="display: flex; background-color: black; color: white; width: 50px; height: 30px; border-radius: 10px; justify-content: center; align-items: center;">
+                    > 30
+                </div>
+                <div class="col" style="display: flex; flex-direction: column; margin: 0px 0px 0px 12px">
+                    <p style="margin-bottom: 4px; font-weight: bold;">Lead time ekstrem</p>
+                    <p>Lead time melebihi nilai tertinggi dalam data. Situasi ini mengindikasikan masalah serius dalam rantai pasokan atau produksi yang memerlukan tindakan perbaikan mendesak untuk mengurangi keterlambatan yang signifikan dalam pengiriman produk kepada pelanggan.</p>
+                </div>
+            </div>
+        `;
         });
     }
 
     function denormalize(value, min, max) {
-        return value * (max - min) + min;
+        return Math.round(value * (max - min) + min);
     }
 
     function reset() {
